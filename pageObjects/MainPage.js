@@ -13,6 +13,7 @@ class MainPage {
     async goTo()
     {
          await this.page.goto('https://www.amazon.in/')
+         await expect(this.page.locator('.nav-logo-link')).toBeVisible()
          await expect(this.page.locator('.nav-logo-link')).toHaveAttribute('aria-label', 'Amazon.in',{timeout:10000})
     }
     async navigateToTelevisionsPage()
