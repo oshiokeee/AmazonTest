@@ -7,7 +7,7 @@ class MainPage {
         this.allCategoryButton = page.locator("[aria-label='Open All Categories Menu']")
         this.menuList = page.locator('#hmenu-canvas:visible')
         this.tvApplianceElectronicBtn = page.locator("[data-ref-tag='nav_em_1_1_1_14']:visible")
-        this.televisons = page.locator('section ul li a:has-text("Televisions")')
+        this.televisons = page.locator('section ul li a:has-text("Televisions"):visible')
     }
     
     async goTo()
