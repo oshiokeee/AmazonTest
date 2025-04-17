@@ -1,7 +1,7 @@
 const {test, expect} = require ('@playwright/test')
 const {MainPage} = require('../pageObjects/MainPage')
 
-test('Validate a user can navigate to Amazon URL', async function({browser}){
+test.only('Validate a user can navigate to Amazon URL', async function({browser}){
     
      const newContent = await browser.newContext()
      const page = await newContent.newPage()
