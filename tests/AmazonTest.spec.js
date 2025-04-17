@@ -1,4 +1,5 @@
 const {test, expect} = require ('@playwright/test')
+const {MainPage} = require('../pageObjects/MainPage')
 
 test('Validate a user can navigate to Amazon URL', async function({browser}){
     
@@ -8,3 +9,8 @@ test('Validate a user can navigate to Amazon URL', async function({browser}){
      await page.goto('https://www.amazon.in/')
      await expect(page.locator('.nav-logo-link')).toHaveAttribute('aria-label', 'Amazon.in')
 })
+test('Navigate to television section',async function({page}){
+    const MainPage = new MainPage(page)
+
+})
+//Word
