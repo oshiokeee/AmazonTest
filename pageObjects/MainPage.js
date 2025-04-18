@@ -6,13 +6,14 @@ class MainPage {
         this.page = page
         this.allCategoryButton = page.locator("[aria-label='Open All Categories Menu']")
         this.menuList = page.locator('#hmenu-canvas:visible')
-        this.tvApplianceElectronicBtn = page.locator("[data-ref-tag='nav_em_1_1_1_14']:visible")
-        this.televisons = page.locator('a.hmenu-item:has-text("Televisions"):visible')
+        this.tvApplianceElectronicBtn = page.locator('a.hmenu-item:has-text("TV, Appliances, Electronics"):visible')
+        //this.televisons = page.locator('a.hmenu-item:has-text("Televisions"):visible').first()
+        this.televisons = page.getByRole('link', { name: 'Televisions' }).nth(1)
     }
     
     async goTo()
     {
-         await this.page.goto('https://www.amazon.in/')
+         await this.page.goto('https://www.amazon.in')
          await expect(this.page.locator('.nav-logo-link')).toBeVisible()
          await expect(this.page.locator('.nav-logo-link')).toHaveAttribute('aria-label', 'Amazon.in',{timeout:10000})
     }
@@ -23,6 +24,7 @@ class MainPage {
         await this.tvApplianceElectronicBtn.scrollIntoViewIfNeeded();
         await this.tvApplianceElectronicBtn.click()
         await this.televisons.click()
+        await this.televisons.waitFor({timeout:10000})
 
     }
 }
