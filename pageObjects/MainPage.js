@@ -1,4 +1,5 @@
 const { expect } = require('@playwright/test');
+const { televisionPage } = require('./televisionsPage');
 class MainPage {
 
     constructor(page)
@@ -26,6 +27,7 @@ class MainPage {
         await this.televisons.click()
         await this.televisons.waitFor({timeout:10000})
 
+        return new televisionPage(this.page);
     }
 }
 module.exports = {MainPage};
